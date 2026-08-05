@@ -1,0 +1,77 @@
+{
+  "name": "shipstatic-cli",
+  "version": "1.3.0",
+  "description": "CLI and SDK for ShipStatic — deploy static websites, landing pages, and prototypes instantly. The unscoped name for @shipstatic/ship.",
+  "keywords": [
+    "shipstatic",
+    "static-hosting",
+    "deploy",
+    "cli",
+    "sdk"
+  ],
+  "homepage": "https://shipstatic.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shipstatic/shipstatic-cli.git"
+  },
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "ship": "./bin.cjs"
+  },
+  "main": "./index.cjs",
+  "module": "./index.mjs",
+  "types": "./index.d.cts",
+  "exports": {
+    ".": {
+      "browser": {
+        "types": "./index.d.mts",
+        "default": "./index.mjs"
+      },
+      "import": {
+        "types": "./index.d.mts",
+        "default": "./index.mjs"
+      },
+      "require": {
+        "types": "./index.d.cts",
+        "default": "./index.cjs"
+      }
+    },
+    "./cli": "./bin.cjs",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "bin.cjs",
+    "index.cjs",
+    "index.mjs",
+    "index.d.cts",
+    "index.d.mts",
+    "README.md"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "packageManager": "pnpm@10.12.4",
+  "scripts": {
+    "test": "vitest",
+    "test:ci": "vitest --run",
+    "check:package": "publint && attw --pack . --ignore-rules false-export-default --exclude-entrypoints cli",
+    "prepare": "git config core.hooksPath scripts/githooks",
+    "lint": "biome check .",
+    "format": "biome format --write ."
+  },
+  "dependencies": {
+    "@shipstatic/ship": "^1.3.0"
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "^0.18.5",
+    "@biomejs/biome": "2.5.5",
+    "publint": "^0.3.12",
+    "vitest": "^4.1.10"
+  },
+  "bugs": {
+    "url": "https://github.com/shipstatic/ship/issues"
+  },
+  "author": "ShipStatic"
+}
