@@ -4,7 +4,7 @@
 >
 > This is an alias for it, so a guess at the unscoped name doesn't dead-end. **Use it directly** — `npx shipstatic-cli` runs the same binary, `import Ship from 'shipstatic-cli'` resolves to the same module. Nothing to switch to.
 
-Deploy a static site from the terminal or from code.
+Deploy static websites, landing pages, and prototypes instantly from the terminal or code.
 
 ## Deploy
 
@@ -24,7 +24,7 @@ npx shipstatic-cli ./index.html
 
 > Anonymous deployments are **public** and **expire in 3 days**. The claim URL is how one becomes permanent — surface it to whoever asked for the deploy.
 
-## Auth — deploy needs none, everything else does
+## Auth: deploy needs none, everything else does
 
 | | |
 |---|---|
@@ -72,4 +72,19 @@ const result = await new Ship().deploy('./dist');
 
 ## Full documentation
 
-Custom domains, API keys, deploy tokens, managing deployments, the complete SDK reference — **[`@shipstatic/ship`](https://www.npmjs.com/package/@shipstatic/ship)**.
+Custom domains, API keys, deploy tokens, managing deployments, the complete SDK reference: **[`@shipstatic/ship`](https://www.npmjs.com/package/@shipstatic/ship)**.
+
+## Also available
+
+| Surface | Reach it |
+|---------|----------|
+| **[MCP](https://mcp.shipstatic.com)** | Drop `https://mcp.shipstatic.com` into any MCP client |
+| **[VS Code](https://marketplace.visualstudio.com/items?itemName=shipstatic.shipstatic)** | Search "ShipStatic" in the Marketplace |
+| **[Gemini CLI](https://github.com/shipstatic/plugin)** | `gemini extensions install https://github.com/shipstatic/plugin` |
+| **[n8n](https://www.npmjs.com/package/n8n-nodes-shipstatic)** | Search "ShipStatic" in n8n's node panel |
+| **[GitHub Action](https://github.com/shipstatic/action)** | `shipstatic/action@v2` |
+| **[Agent Skill](https://www.shipstatic.com/SKILL.md)** | One file, for any skills-aware tool |
+
+## License
+
+MIT

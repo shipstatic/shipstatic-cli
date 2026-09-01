@@ -1,7 +1,7 @@
 {
   "name": "shipstatic-cli",
   "version": "2.8.0",
-  "description": "CLI and SDK for ShipStatic — deploy static websites, landing pages, and prototypes instantly. The unscoped name for @shipstatic/ship.",
+  "description": "CLI and SDK for ShipStatic. Deploy static websites, landing pages, and prototypes instantly from the terminal or code. The unscoped name for @shipstatic/ship.",
   "keywords": [
     "shipstatic",
     "static-hosting",
