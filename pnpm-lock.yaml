@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@shipstatic/ship':
-        specifier: ^3.0.0
-        version: 3.0.0
+        specifier: ^3.1.0
+        version: 3.1.0
     devDependencies:
       '@arethetypeswrong/cli':
         specifier: ^0.18.5
@@ -199,8 +199,8 @@ packages:
   '@rolldown/pluginutils@1.0.1':
     resolution: {integrity: sha512-2j9bGt5Jh8hj+vPtgzPtl72j0yRxHAyumoo6TNfAjsLB04UtpSvPbPcDcBMxz7n+9CYB0c1GxQFxYRg2jimqGw==}
 
-  '@shipstatic/ship@3.0.0':
-    resolution: {integrity: sha512-ThAp7VUFpSZi/M4zK2/qYEAQDCvFoLOWKDxo6K4Gb+76h3wUmD9+i1rFIBFFTesSHgpG99DD6AghWHgyin1fEg==}
+  '@shipstatic/ship@3.1.0':
+    resolution: {integrity: sha512-YVzyfloTsKraoQN/vGlx0iFLo3PZl7Pyk0L92KS07GnGWMpa9tcdY5FqMjkHgbfoyHd5i1cfORJAOxoekrcmZw==}
     engines: {node: '>=20.19.0'}
     hasBin: true
 
@@ -842,7 +842,7 @@ snapshots:
 
   '@rolldown/pluginutils@1.0.1': {}
 
-  '@shipstatic/ship@3.0.0':
+  '@shipstatic/ship@3.1.0':
     dependencies:
       junk: 4.0.1
       spark-md5: 3.0.2
