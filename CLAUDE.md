@@ -48,10 +48,11 @@ two as one artifact with two manifests:
 - **Lockstep is three-way now.** A ship release means a release of `shipstatic`
   AND `shipstatic-cli`; a bump that lands on one leaves `npx` caches serving a
   stale SDK under the other. The `>=` fence in `contract.test.js` fires
-  per-repo, so neither can drift silently — but nothing cross-checks the two
-  against *each other*, and that is a deliberate gap: a fence spanning repos
-  would need one to fetch the other's registry state at test time, trading a
-  hermetic suite for a check that Renovate's two lockfile PRs already surface.
+  per-repo, so neither can drift silently from ship. The two are held to
+  EACH OTHER by the monorepo's `scripts/check-publish-law.sh`, which compares
+  both working trees file by file with the name substituted (every tracked
+  file but this one). Neither suite fetches the other's state, so each stays
+  hermetic; the cross-check lives where both trees are already on disk.
 
 ## Architecture
 
