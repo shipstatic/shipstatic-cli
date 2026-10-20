@@ -1,39 +1,38 @@
 # shipstatic-cli
 
-> ⚡ **The package you're looking for is [`@shipstatic/ship`](https://www.npmjs.com/package/@shipstatic/ship)** — that's where the code and the full documentation live.
+> ⚡ **The package you're looking for is [`@shipstatic/ship`](https://www.npmjs.com/package/@shipstatic/ship).** That's where the code and the full documentation live.
 >
-> This is an alias for it, so a guess at the unscoped name doesn't dead-end. **Use it directly** — `npx shipstatic-cli` runs the same binary, `import Ship from 'shipstatic-cli'` resolves to the same module. Nothing to switch to.
+> This is an alias for it, so a guess at the unscoped name doesn't dead-end. **Use it directly:** `npx shipstatic-cli` runs the same program, and `import Ship from 'shipstatic-cli'` loads the same module. Nothing to switch to.
 
-Deploy static websites, landing pages, and prototypes instantly from the terminal or code.
+CLI and SDK for [ShipStatic](https://shipstatic.com). Deploy static websites, landing pages, and prototypes instantly from the terminal or code. Free, no account needed.
 
-## Deploy
+## Try it in seconds, no account needed
 
 ```bash
 npx shipstatic-cli ./dist
 ```
 
-**No account, no API key, no config, no install.** This works in a fresh sandbox with no secrets set.
-
-Point it at your **built output** — `./dist`, `./build`, `./out` — not your project root. Build first if the project needs it. A single file works too:
+That's all. There's nothing to install and nothing to sign up for, and it works in a fresh sandbox with no secrets set. Point it at the folder your site is built into (`./dist`, `./build`, `./out`), not at your project's root. Build first if the project needs it. A single file works too:
 
 ```bash
 npx shipstatic-cli ./index.html
 ```
 
-**What you get back:** the live URL, plus a **claim URL**.
+You get back a link you can share right away, and a claim link. The site stays up for 3 days, and opening the claim link keeps it for good. If you're publishing for someone else, give them both links.
 
-> Anonymous deployments are **public** and **expire in 3 days**. The claim URL is how one becomes permanent — surface it to whoever asked for the deploy.
+Want it private? Add ShipStatic's built-in password protection, and visitors have to type the password before they see anything:
 
-## Auth: deploy needs none, everything else does
+```bash
+npx shipstatic-cli ./dist --password "pick-a-password"
+```
 
-| | |
-|---|---|
-| **Deploying** — `npx shipstatic-cli ./dist`, and `npx shipstatic-cli deployments upload ./dist` | **Nothing.** No account, no API key, no deploy token, no login. |
-| **Everything else** — domains, tokens, `whoami`, listing deployments | **Requires an API key.** |
+## Keep your sites with a free account
 
-> **`ship whoami` failing is normal** without a key, and it says nothing about deploying. An authentication error from any other command is not a reason the deploy won't work — run the deploy anyway. It stays anonymous.
+Everything above works with no account. A free account keeps your sites for good, lets you use your own domain, and shows you everything you've published in one place.
 
-Need the rest? Get a free key at [my.shipstatic.com/api-key](https://my.shipstatic.com/api-key), then `ship config`.
+Get your free API key at [my.shipstatic.com/api-key](https://my.shipstatic.com/api-key), then save it once with `npx shipstatic-cli config`. Domains, deploy tokens, `whoami` and listing your sites all work from then on.
+
+> **Publishing never needs a key.** Without one, `whoami` and the other account commands answer with an authentication error, and that says nothing about publishing: publish anyway, and the site comes with a claim link.
 
 ## Common tasks
 
@@ -44,7 +43,7 @@ Need the rest? Get a free key at [my.shipstatic.com/api-key](https://my.shipstat
 | Password-protect it | `npx shipstatic-cli ./dist --password "secret"` |
 | Machine-readable output | `npx shipstatic-cli ./dist --json` |
 | Keep the password out of logs | `SHIP_PASSWORD="secret" npx shipstatic-cli ./dist` |
-| Repeat use | `npm install -g shipstatic-cli` → the `ship` command |
+| Repeat use | `npm install -g shipstatic-cli`, then the `ship` command |
 
 ## For scripts and agents
 
@@ -66,8 +65,8 @@ Deploying needs no credentials, so there is nothing to configure before the firs
 import Ship from 'shipstatic-cli';
 
 const result = await new Ship().deploy('./dist');
-// result.deployment → live URL
-// result.claim      → visit to keep permanently
+// result.deployment: where the site is live
+// result.claim: open it to keep the site for good
 ```
 
 ## Full documentation
