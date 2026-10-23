@@ -1,6 +1,6 @@
 # The same publish law as every other ShipStatic npm repo — the version picks
-# the channel, the branch grants the right to use it. See root CLAUDE.md,
-# "The npm publish law".
+# the channel, the branch grants the right to use it. The platform's release
+# rules hold it.
 #
 # This repo is main-only (no `development`): a forwarder for a stable line
 # publishes to `latest` and has nothing to stage on a beta channel.
@@ -184,8 +184,8 @@ jobs:
   # Every publish, and every red run on a push, reaches the operator's alerts
   # channel; a pull request's red already has a reader, its author. The
   # webhook lives in this job alone, which runs nothing but curl, and an unset
-  # secret fails the job rather than skipping it. Root CLAUDE.md, "CI
-  # notifications".
+  # secret fails the job rather than skipping it. The platform's
+  # release rules hold this for every repo.
   notify:
     needs: [test, version, publish, release]
     if: always() && github.event_name != 'pull_request' && (contains(needs.*.result, 'failure') || needs.version.outputs.publish == 'true')
