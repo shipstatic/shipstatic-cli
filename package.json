@@ -1,6 +1,6 @@
 {
   "name": "shipstatic-cli",
-  "version": "3.11.0",
+  "version": "3.12.0",
   "description": "CLI and SDK for ShipStatic. Deploy static websites, landing pages, and prototypes instantly from the terminal or code. Free, no account needed. The unscoped name for @shipstatic/ship.",
   "keywords": [
     "shipstatic",
@@ -28,13 +28,19 @@
         "types": "./index.d.mts",
         "default": "./index.mjs"
       },
-      "import": {
+      "node": {
+        "import": {
+          "types": "./index.d.mts",
+          "default": "./index.mjs"
+        },
+        "require": {
+          "types": "./index.d.cts",
+          "default": "./index.cjs"
+        }
+      },
+      "default": {
         "types": "./index.d.mts",
         "default": "./index.mjs"
-      },
-      "require": {
-        "types": "./index.d.cts",
-        "default": "./index.cjs"
       }
     },
     "./cli": "./bin.cjs",
@@ -66,7 +72,7 @@
     "format": "biome format --write ."
   },
   "dependencies": {
-    "@shipstatic/ship": "^3.11.0"
+    "@shipstatic/ship": "^3.12.0"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.18.5",

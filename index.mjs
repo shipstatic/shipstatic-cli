@@ -6,9 +6,9 @@
 // import keeps working, which is the kind of break that reaches users rather
 // than CI.
 //
-// This file is also the `browser` condition's target. The specifier below is
-// bare, so a bundler re-resolves `@shipstatic/ship` under its OWN conditions
-// and lands on ship's browser build — the forward stays correct per-platform
-// without this package naming a platform anywhere.
+// This file is also the `browser` and the `default` conditions' target. The
+// specifier below is bare, so a bundler re-resolves `@shipstatic/ship` under
+// its OWN conditions and lands on the build ship hands that tool — the forward
+// stays correct per-platform without this package naming a platform anywhere.
 export * from '@shipstatic/ship';
 export { default } from '@shipstatic/ship';

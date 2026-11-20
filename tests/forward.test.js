@@ -14,11 +14,10 @@ describe('CJS forward', () => {
     expect(r.sameInstance).toBe(true);
   });
 
-  it("preserves ship's callable-constructor shape", () => {
-    // ship's post-build makes `require()` return the Ship constructor itself
-    // (axios-style). Forwarding the namespace keeps that; naming exports one by
-    // one would have quietly flattened it to a plain object.
-    expect(r.typeofWrapper).toBe('function');
+  it("is ship's own exports object, never a copy of it", () => {
+    // Forwarding the namespace keeps every export ship has and adds for free;
+    // naming exports one by one would be a list that drifts.
+    expect(r.typeofWrapper).toBe('object');
   });
 
   it('carries the default export', () => {

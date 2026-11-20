@@ -42,7 +42,7 @@ Seven files (five forwards, the manifest, the README) and **no build step**, so
 |---|---|
 | `bin.cjs` | `require('@shipstatic/ship/cli')`: the binary, forwarded |
 | `index.cjs` | `module.exports = require('@shipstatic/ship')`: the CJS forward |
-| `index.mjs` | `export *` + `export { default }`: the ESM and `browser` forward |
+| `index.mjs` | `export *` + `export { default }`: the ESM forward, and the target of `browser` and `default` |
 | `index.d.cts` / `index.d.mts` | the same two lines per module format |
 
 - **The bin loads in-process; it never spawns.** ship avoids `process.exit` so
@@ -118,9 +118,10 @@ exercises the published exports map.
 - **Artifact completeness.** Every path the manifest names exists and is in
   `files`; otherwise it resolves locally and 404s for everyone after publishing.
 
-**`attw` ignores `false-export-default`, deliberately.** Published
-`@shipstatic/ship` carries the same verdict, a false positive (ship's build
-assigns a real `.default`, and `tests/forward.test.js` proves it). `export =` in
+**`attw` ignores `false-export-default`, deliberately.** It reads this
+package's own `module.exports = require(...)` as an assignment with no
+`default`, a false positive: the object forwarded is ship's exports, which
+carry a real `.default`, and `tests/forward.test.js` proves it. `export =` in
 `index.d.cts` would make these types differ from ship's.
 
 ## The README is a quickstart, and it is fenced
